@@ -65,4 +65,54 @@ const ProductivityApp = () => {
             setLoading(false); 
         }
     }
+
+    // Reward CRUD Operations (will be replaced by custom hooks)
+  const addReward = async () => {
+    if (newReward.title.trim()) {
+      setLoading(true);
+      try {
+        // When backend is ready: await createReward(newReward);
+        setRewards([...rewards, {
+          id: Date.now(),
+          title: newReward.title,
+          cost: parseInt(newReward.cost),
+          claimed: false
+        }]);
+        setNewReward({ title: '', cost: 10 });
+      } catch (error) {
+        console.error('Failed to create reward:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
+
+  const handleDeleteReward = async (id) => {
+    setLoading(true);
+    try {
+      // When backend is ready: await deleteReward(id);
+      setRewards(rewards.filter(reward => reward.id !== id));
+    } catch (error) {
+      console.error('Failed to delete reward:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleClaimReward = async (id) => {
+    const reward = rewards.find(r => r.id === id);
+    if (reward && availablePoints >= reward.cost) {
+      setLoading(true);
+      try {
+        // When backend is ready: await claimReward(id);
+        setRewards(rewards.map(reward => 
+          reward.id === id ? { ...reward, claimed: true } : reward
+        ));
+      } catch (error) {
+        console.error('Failed to claim reward:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
 }
