@@ -6,4 +6,4 @@ router.get('/', (req, res) => {
   res.send('User endpoint is working!');
 });
 
-module.exports = router; // THIS IS CRITICAL
+module.exports = router; 
