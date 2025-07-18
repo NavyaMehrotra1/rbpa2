@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Reward = require('../models/Reward'); 
 
 // GET all rewards
 router.get('/', (req, res) => {
