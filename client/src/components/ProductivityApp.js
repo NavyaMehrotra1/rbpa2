@@ -138,7 +138,7 @@ const ProductivityApp = () => {
       <div className="max-w-6xl mx-auto">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-gray-800 mb-2">
-          Productivity Based Rewards App
+          Rewards Based Productivity App
         </h1>
         <div className="bg-white rounded-lg shadow-md p-4 inline-block">
           <div className="flex items-center gap-2 text-lg">
